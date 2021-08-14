@@ -3,7 +3,7 @@ addEventListener("fetch", (event) => {
   const segmenter = new Intl.Segmenter("ja", {granularity: "word"});
   const segments = segmenter.segment(targetText);
   event.respondWith(
-    new Response(JSON.stringify([...segments]), {
+    new Response(JSON.stringify([...segments].map(seg=>seg.segment)), {
       status: 200,
       headers: {
         "content-type": "application/json",
