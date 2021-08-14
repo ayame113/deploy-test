@@ -1,6 +1,7 @@
 addEventListener("fetch", (event) => {
+  const targetText = new URL(event.request.url).searchParams.get('text') ?? 'メロスは激怒した。'
   const segmenter = new Intl.Segmenter("ja", {granularity: "word"});
-  const segments = segmenter.segment('メロスは激怒した。');
+  const segments = segmenter.segment(targetText);
   event.respondWith(
     new Response(JSON.stringify([...segments]), {
       status: 200,
