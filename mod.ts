@@ -5,7 +5,7 @@ addEventListener("fetch", (event) => {
     new Response(JSON.stringify([...segments]), {
       status: 200,
       headers: {
-        "content-type": "text/plain",
+        "content-type": "application/json",
       },
     }),
   );
